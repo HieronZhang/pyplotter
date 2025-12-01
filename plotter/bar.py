@@ -53,7 +53,7 @@ def plot_bar(ax, dim1, dim2, dim3, sections, data_scale, horiz_major_tick, bar_w
     x_major_ticks = np.array([horiz_major_tick * (0.5 + x_major_tick_idx) for x_major_tick_idx in range(len(dim2) - 1)])
 
     if 'title' in kwargs:
-        ax.set_title(kwargs['title'], fontsize=20)
+        ax.set_title(kwargs['title'], fontsize=22)
 
     ax.set_xticks(x_major_ticks)
     ax.set_xticklabels(["" for _ in x_major_ticks])
@@ -61,7 +61,7 @@ def plot_bar(ax, dim1, dim2, dim3, sections, data_scale, horiz_major_tick, bar_w
     for x_subtick, x_subtick_label in zip(x_subticks, x_subtick_labels):
         ax.text(x_subtick, ymin - (ymax - ymin) * 0.04, x_subtick_label, ha='center', va='top', fontsize=20)
     for x_tick, x_tick_label in zip(np.array([horiz_major_tick * x_tick_idx for x_tick_idx in range(len(dim2))]), dim2):
-        ax.text(x_tick, ymin - (ymax - ymin) * 0.15, x_tick_label, ha='center', va='top', fontsize=17)
+        ax.text(x_tick, ymin - (ymax - ymin) * 0.15, x_tick_label, ha='center', va='top', fontsize=18)
     ax.tick_params(which='major', width=1.6, length=9)
     ax.set_xlim([-horiz_margin * horiz_major_tick, (len(dim2) - 1 + horiz_margin) * horiz_major_tick])
     if ytick is not None:
@@ -76,13 +76,13 @@ def plot_bar(ax, dim1, dim2, dim3, sections, data_scale, horiz_major_tick, bar_w
     ax.set_ylim([ymin, ymax])
     if normalize_base is None or len(normalize_base) == 0:
         if unit is None or len(unit) == 0:
-            ax.set_ylabel(f"{ylabel}", fontsize=20)
+            ax.set_ylabel(f"{ylabel}", fontsize=22)
         else:
-            ax.set_ylabel(f"{ylabel} ({unit})", fontsize=20)
+            ax.set_ylabel(f"{ylabel} ({unit})", fontsize=22)
     else:
         for x_tick, data in zip(x_tick_array[:, normalize_base_idx], agg_slice[:, normalize_base_idx]):
             ax.text(x_tick + bar_width * 0.1, 1 + 0.02 * (ymax - ymin), f"{data:.2f} {unit}", ha="center", va="bottom", rotation=90, fontsize=14)
-        ax.set_ylabel(f"{ylabel}", fontsize=20)
+        ax.set_ylabel(f"{ylabel}", fontsize=22)
     ax.yaxis.grid(zorder=0)
 
     if force_ylim:
