@@ -52,16 +52,16 @@ def plot_bar(ax, dim1, dim2, dim3, sections, data_scale, horiz_major_tick, bar_w
     x_minor_ticks = np.unique(np.hstack([x_subticks - bar_width / 2, x_subticks + bar_width / 2]))
     x_major_ticks = np.array([horiz_major_tick * (0.5 + x_major_tick_idx) for x_major_tick_idx in range(len(dim2) - 1)])
 
-    if 'title' in kwargs:
-        ax.set_title(kwargs['title'], fontsize=22)
+    # if 'title' in kwargs:
+    #     ax.set_title(kwargs['title'], fontsize=22)
 
     ax.set_xticks(x_major_ticks)
     ax.set_xticklabels(["" for _ in x_major_ticks])
     ax.xaxis.set_minor_locator(FixedLocator(x_minor_ticks))
     for x_subtick, x_subtick_label in zip(x_subticks, x_subtick_labels):
-        ax.text(x_subtick, ymin - (ymax - ymin) * 0.04, x_subtick_label, ha='center', va='top', fontsize=20)
+        ax.text(x_subtick, ymin - (ymax - ymin) * 0.04, x_subtick_label, ha='center', va='top', fontsize=21)
     for x_tick, x_tick_label in zip(np.array([horiz_major_tick * x_tick_idx for x_tick_idx in range(len(dim2))]), dim2):
-        ax.text(x_tick, ymin - (ymax - ymin) * 0.15, x_tick_label, ha='center', va='top', fontsize=18)
+        ax.text(x_tick, ymin - (ymax - ymin) * 0.15, x_tick_label, ha='center', va='top', fontsize=17)
     ax.tick_params(which='major', width=1.6, length=9)
     ax.set_xlim([-horiz_margin * horiz_major_tick, (len(dim2) - 1 + horiz_margin) * horiz_major_tick])
     if ytick is not None:
